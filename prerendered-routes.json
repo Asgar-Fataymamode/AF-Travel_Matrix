@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "/",
+    "/all-visitors",
+    "/calendar",
+    "/forthcoming-visitors",
+    "/help",
+    "/home",
+    "/outgoing-visitors"
+  ]
+}
