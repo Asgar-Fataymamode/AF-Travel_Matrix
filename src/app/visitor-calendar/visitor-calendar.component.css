@@ -1,0 +1,104 @@
+
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Adjust the gap as needed */
+    padding: 20px;
+  }
+  
+  .calendar-section {
+    flex: 1;
+  }
+  
+  .availability-section {
+    flex: 1;
+    padding-left: 100px;
+    padding-top: 70px;
+  }
+  
+  .calendar {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .calendar-header button {
+    background-color: #073655;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  
+  .calendar-header span {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    width: 14.28%;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  th {
+    background-color: #073655;
+    color: white;
+  }
+  
+  td:hover {
+    background-color: #073655;
+  }
+  
+  td {
+    height: 50px;
+  }
+  
+  td.inactive {
+    background-color: black;
+    cursor: default;
+  }
+  
+  ul {
+    list-style-type:none;
+    padding: 0;
+    font-size: 16px;
+    color: white;
+  }
+  
+  h3 {
+    color: white;
+    font-size: 20px;
+    background-color: #073655;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    color: white;
+    text-align: left;
+    font-size: 35px;
+    text-align: center;
+  }
+  

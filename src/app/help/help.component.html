@@ -1,0 +1,13 @@
+<div class="help-container">
+    <h1>AF Travel Matrix FAQ</h1>
+    <div *ngFor="let faq of faqs">
+      <div class="faq-question" (click)="toggleAnswer(faq)">
+        <h3>{{ faq.question }}</h3>
+        <i [ngClass]="faq.open ? 'bx bx-chevron-up' : 'bx bx-chevron-down'"></i>
+      </div>
+      <div class="faq-answer" *ngIf="faq.open">
+        <p>{{ faq.answer }}</p>
+      </div>
+    </div>
+  </div>
+  

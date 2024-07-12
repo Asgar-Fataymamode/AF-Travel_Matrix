@@ -1,0 +1,43 @@
+
+
+
+   <div class="container">
+    <div class="calendar-section">
+      <h1>Calendar</h1>
+      <div class="calendar">
+        <div class="calendar-header">
+          <button (click)="previousMonth()">&lt;</button>
+          <span>{{ months[currentMonth] }} {{ currentYear }}</span>
+          <button (click)="nextMonth()">&gt;</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let week of weeks">
+              <td *ngFor="let day of week" (click)="onDayClick(day)" [class.inactive]="day === 0">
+                {{ day !== 0 ? day : '' }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <div class="availability-section" *ngIf="selectedDate">
+      <h3>Available Employees on {{ selectedDate }}</h3>
+      <ul>
+        <li *ngFor="let member of availableMembers">{{ member.name }}</li>
+      </ul>
+    </div>
+  </div>
+  

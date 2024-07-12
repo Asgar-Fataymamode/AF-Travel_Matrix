@@ -1,0 +1,105 @@
+
+
+
+  <h1>Hey Forthcoming Visitor!</h1>
+
+<!-- <h2>Please fill out this form if you intend to come to our branch.</h2>
+<div class="globe-animation">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlSl7KWKV1J8t6buukX2rWx-E6CnzgPByp9Q&s" alt="a" class="globe">
+    <span class="circle-spin"></span>
+  </div> -->
+  <h2>
+    <div class="inline-flex">
+      Please fill out this form if you intend to come to our branch
+      <div class="globe-animation">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlSl7KWKV1J8t6buukX2rWx-E6CnzgPByp9Q&s" alt="a" class="globe">
+        <span class="circle-spin"></span>
+      </div>
+    </div>
+  </h2>
+  
+
+
+<form [formGroup]="visitorForm" (ngSubmit)="onSubmit()" @fadeIn>
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input id="firstName" type="text" formControlName="firstName" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('firstName')?.invalid && (visitorForm.get('firstName')?.dirty || visitorForm.get('firstName')?.touched)">
+      First Name is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" type="text" formControlName="lastName" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('lastName')?.invalid && (visitorForm.get('lastName')?.dirty || visitorForm.get('lastName')?.touched)">
+      Last Name is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="employeeId">Employee ID:</label>
+    <input id="employeeId" type="text" formControlName="employeeId" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('employeeId')?.invalid && (visitorForm.get('employeeId')?.dirty || visitorForm.get('employeeId')?.touched)">
+      Employee ID is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="employeePosition">Employee Position:</label>
+    <input id="employeePosition" type="text" formControlName="employeePosition" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('employeePosition')?.invalid && (visitorForm.get('employeePosition')?.dirty || visitorForm.get('employeePosition')?.touched)">
+      Employee Position is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="branchTravellingFrom">Branch Travelling From:</label>
+    <input id="branchTravellingFrom" type="text" formControlName="branchTravellingFrom" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('branchTravellingFrom')?.invalid && (visitorForm.get('branchTravellingFrom')?.dirty || visitorForm.get('branchTravellingFrom')?.touched)">
+      Branch Travelling From is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="arrivalDate">Arrival Date:</label>
+    <input id="arrivalDate" type="date" formControlName="arrivalDate" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('arrivalDate')?.invalid && (visitorForm.get('arrivalDate')?.dirty || visitorForm.get('arrivalDate')?.touched)">
+      Arrival Date is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="departureDate">Departure Date:</label>
+    <input id="departureDate" type="date" formControlName="departureDate" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('departureDate')?.invalid && (visitorForm.get('departureDate')?.dirty || visitorForm.get('departureDate')?.touched)">
+      Departure Date is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="purposeOfVisit">Purpose of Visit:</label>
+    <input id="purposeOfVisit" type="text" formControlName="purposeOfVisit" class="form-control">
+    <div class="error" *ngIf="visitorForm.get('purposeOfVisit')?.invalid && (visitorForm.get('purposeOfVisit')?.dirty || visitorForm.get('purposeOfVisit')?.touched)">
+      Purpose of Visit is required.
+    </div>
+  </div>
+  
+  <button type="submit" [disabled]="!visitorForm.valid" class="submit-btn">Submit</button>
+</form>
+
+<p *ngIf="visitorForm.invalid && (visitorForm.dirty || visitorForm.touched)" class="status-message">
+  Please fill out all required fields.
+</p>
+<p *ngIf="visitorForm.valid && !visitorForm.pending" class="status-message">
+  Ready to submit.
+</p>
+<p *ngIf="visitorForm.pending" class="status-message">
+  Submitting...
+</p>
+<!-- <p *ngIf="isSubmitting" class="status-message">
+    Submitting...
+</p> -->
+<div *ngIf="submissionSuccess" class="submission-message">
+    Data has been submitted successfully.
+  </div>

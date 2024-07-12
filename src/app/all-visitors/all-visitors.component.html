@@ -1,0 +1,190 @@
+<!-- 
+<h1>All Visitors</h1>
+
+<h2>Forthcoming Visitors</h2>
+<table class="visitor-table" @scaleIn>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Employee ID</th>
+      <th>Employee Position</th>
+      <th>Branch Travelling From</th>
+      <th>Arrival Date</th>
+      <th>Departure Date</th>
+      <th>Purpose of Visit</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let visitor of forthcomingVisitors">
+      <td>{{ visitor.firstName }}</td>
+      <td>{{ visitor.lastName }}</td>
+      <td>{{ visitor.employeeId }}</td>
+      <td>{{ visitor.employeePosition }}</td>
+      <td>{{ visitor.branchTravellingFrom }}</td>
+      <td>{{ visitor.arrivalDate | date }}</td>
+      <td>{{ visitor.departureDate | date }}</td>
+      <td>{{ visitor.purposeOfVisit }}</td>
+
+
+      
+
+      <td class="actions-cell">
+        <button class="delete-btn" (click)="deleteVisitor(visitor, 'forthcoming')">Delete</button>
+      </td>
+
+      
+
+
+
+
+    </tr>
+  </tbody>
+</table>
+
+<h2>Outgoing Visitors</h2>
+<table class="visitor-table" @scaleIn>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Employee ID</th>
+      <th>Employee Position</th>
+      <th>Branch Travelling To</th>
+      <th>Departure Date</th>
+      <th>Arrival Date</th>
+      <th>Purpose of Visit</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let visitor of outgoingVisitors">
+      <td>{{ visitor.firstName }}</td>
+      <td>{{ visitor.lastName }}</td>
+      <td>{{ visitor.employeeId }}</td>
+      <td>{{ visitor.employeePosition }}</td>
+      <td>{{ visitor.branchTravellingFrom }}</td>
+      <td>{{ visitor.departureDate | date }}</td>
+      <td>{{ visitor.arrivalDate | date }}</td>
+      <td>{{ visitor.purposeOfVisit }}</td>
+
+
+     
+
+      <td class="actions-cell">
+        <button class="delete-btn" (click)="deleteVisitor(visitor, 'outgoing')">Delete</button>
+      </td>
+
+     
+
+    </tr>
+  </tbody>
+</table>
+
+  -->
+
+
+  <h1>All Visitors</h1>
+
+  <h2>Forthcoming Visitors</h2>
+  <form [formGroup]="visitorForm">
+    <table class="visitor-table" @scaleIn>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Employee ID</th>
+          <th>Employee Position</th>
+          <th>Branch Travelling From</th>
+          <th>Arrival Date</th>
+          <th>Departure Date</th>
+          <th>Purpose of Visit</th>
+          <!-- <th>Actions</th> -->
+          <!-- <th>Actions</th> -->
+        </tr>
+      </thead>
+      <tbody formArrayName="forthcomingVisitors">
+        <tr *ngFor="let visitor of forthcomingVisitorsFormArray.controls; let i = index" [formGroupName]="i">
+          <ng-container *ngIf="editIndex !== i; else editMode">
+            <td>{{ visitor.value.firstName }}</td>
+            <td>{{ visitor.value.lastName }}</td>
+            <td>{{ visitor.value.employeeId }}</td>
+            <td>{{ visitor.value.employeePosition }}</td>
+            <td>{{ visitor.value.branchTravellingFrom }}</td>
+            <td>{{ visitor.value.arrivalDate | date }}</td>
+            <td>{{ visitor.value.departureDate | date }}</td>
+            <td>{{ visitor.value.purposeOfVisit }}</td>
+            <td class="actions-cell">
+              <button class="edit-btn" (click)="startEdit(i)">Edit</button>
+              <button class="delete-btn" (click)="deleteVisitor(visitor.value, 'forthcoming')">Delete</button>
+            </td>
+          </ng-container>
+          <ng-template #editMode>
+            <td><input formControlName="firstName" /></td>
+            <td><input formControlName="lastName" /></td>
+            <td><input formControlName="employeeId" /></td>
+            <td><input formControlName="employeePosition" /></td>
+            <td><input formControlName="branchTravellingFrom" /></td>
+            <td><input formControlName="arrivalDate" type="date" /></td>
+            <td><input formControlName="departureDate" type="date" /></td>
+            <td><input formControlName="purposeOfVisit" /></td>
+            <td class="actions-cell">
+              <button class="save-btn" (click)="saveEdit(i, 'forthcoming')">Save</button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  
+  <h2>Outgoing Visitors</h2>
+  <form [formGroup]="visitorForm">
+    <table class="visitor-table" @scaleIn>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Employee ID</th>
+          <th>Employee Position</th>
+          <th>Branch Travelling To</th>
+          <th>Departure Date</th>
+          <th>Arrival Date</th>
+          <th>Purpose of Visit</th>
+          <!-- <th>Actions</th> -->
+        </tr>
+      </thead>
+      <tbody formArrayName="outgoingVisitors">
+        <tr *ngFor="let visitor of outgoingVisitorsFormArray.controls; let i = index" [formGroupName]="i">
+          <ng-container *ngIf="editIndexOutgoing !== i; else editModeOutgoing">
+            <td>{{ visitor.value.firstName }}</td>
+            <td>{{ visitor.value.lastName }}</td>
+            <td>{{ visitor.value.employeeId }}</td>
+            <td>{{ visitor.value.employeePosition }}</td>
+            <td>{{ visitor.value.branchTravellingTo }}</td>
+            <td>{{ visitor.value.departureDate | date }}</td>
+            <td>{{ visitor.value.arrivalDate | date }}</td>
+            <td>{{ visitor.value.purposeOfVisit }}</td>
+            <td class="actions-cell">
+              <button class="edit-btn" (click)="startEditOutgoing(i)">Edit</button>
+              <button class="delete-btn" (click)="deleteVisitor(visitor.value, 'outgoing')">Delete</button>
+            </td>
+          </ng-container>
+          <ng-template #editModeOutgoing>
+            <td><input formControlName="firstName" /></td>
+            <td><input formControlName="lastName" /></td>
+            <td><input formControlName="employeeId" /></td>
+            <td><input formControlName="employeePosition" /></td>
+            <td><input formControlName="branchTravellingTo" /></td>
+            <td><input formControlName="departureDate" type="date" /></td>
+            <td><input formControlName="arrivalDate" type="date" /></td>
+            <td><input formControlName="purposeOfVisit" /></td>
+            <td class="actions-cell">
+              <button class="save-btn" (click)="saveEdit(i, 'outgoing')">Save</button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  

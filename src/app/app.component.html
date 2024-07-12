@@ -1,0 +1,74 @@
+
+ <!-- <header>
+  <h1 class="animated-title">Asgar Fataymamode_Company Travel Tracker</h1>
+</header>
+<nav>
+  <ul>
+    <li><a routerLink="/forthcoming-visitors">Forthcoming Visitors</a></li>
+    <li><a routerLink="/outgoing-visitors">Outgoing Visitors</a></li>
+    <li><a routerLink="/all-visitors">All Visitors</a></li>
+    <li><a routerLink="/past-travels">Past Travels</a></li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">More</a>
+      <div class="dropdown-content">
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+        <a href="#">Help</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer>
+  <p>&copy; 2024 Asgar Fataymamode_Company Travel Tracker. All rights reserved.</p>
+</footer> -->
+
+
+
+
+<body>
+  <header>
+    <h1 class="animated-title">AF Travel Matrix</h1>
+    <!-- <h2 class="rotating-subtitle">
+      <span class="typing-subtitle"></span>
+    </h2> -->
+
+  <div class="text-animate">
+    <h3><span id="typing"></span><span class="animate" style="--i:3;"></span></h3>
+  </div>
+
+
+  </header>
+  <nav>
+    <ul>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/forthcoming-visitors">Forthcoming Visitors</a></li>
+      <li><a routerLink="/outgoing-visitors">Outgoing Visitors</a></li>
+      <li><a routerLink="/all-visitors">All Visitors</a></li>
+      <li> <a routerLink="/calendar">Calendar</a></li>
+     
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">More</a>
+        <div class="dropdown-content">
+          <!-- <a href="#">Reports</a>
+          <a href="#">Settings</a> -->
+          <!-- <a href="#">Help</a> -->
+          <a routerLink="/help">Help</a>
+          <a href="https://asgarfataymamode.com">Connect</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  
+  <main class="container">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Asgar Fataymamode_AF Travel Matrix. All rights reserved.</p>
+  </footer>
+</body>
