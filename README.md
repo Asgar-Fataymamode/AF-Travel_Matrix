@@ -1,4 +1,4 @@
-# 🛫 AF Travel Matrix
+# 🛫 AF Travel Matrix Full Stack Website
 
 This repository contains both the **Angular frontend** and **ASP.NET backend** of the Full Stack AF Travel Matrix application, developed to manage and track travel arrangements for companies with multiple branches.
 This was completed during my Summer 2024 Internship at SD Worx.
