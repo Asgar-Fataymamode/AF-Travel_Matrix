@@ -1,27 +1,48 @@
-# CompanyTravelTracker
+# 🛫 AF Travel Matrix
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
+This repository contains both the **Angular frontend** and **ASP.NET backend** of the AF Travel Matrix application, developed to manage and track travel arrangements for companies with multiple branches.
+This was completed during my Summer 2024 Internship at SD Worx.
 
-## Development server
+## 📂 Project Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+In organizations with **multiple branches and frequent travel**, it becomes challenging to:
+- **Track employees** who are currently present, arriving, or traveling.
+- **Schedule meetings** without knowing the availability of employees across branches.
+- **Visualize travel schedules** easily.
 
-## Code scaffolding
+AF Travel Matrix solves these challenges by:
+1. **Providing real-time updates** on employee travel statuses.
+2. Offering a **calendar view** to **schedule meetings** based on employee availability.
+3. Storing **centralized travel data** in a database for easy management.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## ⚙️ Functionalities
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1️⃣ Add Forthcoming and Outgoing Employees
+- Admins can **add travel entries** for employees:
+  - **Outgoing**: Employees leaving a branch.
+  - **Forthcoming**: Employees arriving at a branch.
+- The travel dates are **stored in the backend** and shown on the **frontend**.
 
-## Running unit tests
+### 2️⃣ Employee Status Table
+- A **dashboard** displays employees currently **in the branch** and those **traveling**.
+- The table shows:
+  - **Employee names**
+  - **Status** (present, forthcoming, outgoing)
+  - **Branch locations**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 3️⃣ Calendar Integration for Scheduling Meetings
+- A **calendar interface** allows users to:
+  1. **Select any day** to schedule a meeting.
+  2. View **available and unavailable employees** on that date.
+  3. **Schedule meetings** by selecting employees and setting meeting times.
 
-## Running end-to-end tests
+### 4️⃣ Branch-Level View of Employee Presence
+- The **calendar** provides a branch-level view, showing which **employees are present** on any given day.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 📝 License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License.
